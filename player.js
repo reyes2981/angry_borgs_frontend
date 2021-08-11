@@ -1,10 +1,9 @@
 class Player {
-    constructor(x, y, radius, color, gravity) { // constructor allows for class properties to be unique for each object that is created
+    constructor(x, y, radius, color) { // constructor allows for class properties to be unique for each object that is created
         this.x = x
         this.y = y
         this.radius = radius
         this.color = color
-        this.gravity = gravity
     }
 
     draw() {
@@ -15,22 +14,24 @@ class Player {
     }
 
     update() {
-        this.y += this.gravity;
-
+        this.y += 1;
+        this.draw();
     }
-
-
 }
 
-const player = new Player(100, y, 30, 'blue', 0, 1);
-player.draw();
-player.update();
+const x = canvas.width / 2;
+const y = canvas.height / 2;
+
+const player = new Player(100, y, 30, 'blue');
+
 
 function animate() {
-        requestAnimationFrame(animate);
-        console.log('go')
+    requestAnimationFrame(animate);
+    player.draw();
+    player.update();
+    console.log('go')
 }
 
-//animate();
+animate();
 
 
