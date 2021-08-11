@@ -15,3 +15,11 @@ class Enemy {
         ctx.fill()
     }
 }
+
+function spawnEnemies() {
+     setInterval(() => {
+        console.log('go')
+     }, 1000)
+}
+
+spawnEnemies();
