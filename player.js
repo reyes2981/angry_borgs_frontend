@@ -15,9 +15,8 @@ class Player {
     }
 
     update() {
-        this.draw()
-        this.x += this.velocity.x
-        this.y += this.velocity.y
+        this.y += this.gravity;
+
     }
 
 
@@ -25,6 +24,13 @@ class Player {
 
 const player = new Player(100, y, 30, 'blue', 0, 1);
 player.draw();
+player.update();
 
+function animate() {
+        requestAnimationFrame(animate);
+        console.log('go')
+}
+
+//animate();
 
 

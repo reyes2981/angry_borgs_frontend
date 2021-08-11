@@ -1,3 +1,5 @@
+const enemies = [];
+
 class Enemy {
     constructor(x, y, radius, color, velocity, gravity) {
         this.x = x
@@ -18,8 +20,28 @@ class Enemy {
 
 function spawnEnemies() {
      setInterval(() => {
-        console.log('go')
+        const x = 100;
+        const y = 100;
+        const radius = 30
+        const color = 'green'
+        const velocity = { 
+            x: 1,
+            y: 1
+        }
+        enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
+        //console.log('go');
+        // console.log(enemies);
      }, 1000)
 }
 
-spawnEnemies();
+/* function animate() {
+    requestAnimationFrame(animate)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    enemy.draw();
+
+    enemies.forEach((enemy) => {
+        enemy.update();
+    })
+}
+
+spawnEnemies(); */
