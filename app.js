@@ -1,14 +1,9 @@
-// Global variables
+// reference to our canvas
 const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d'); // context - i need to figure out why this is needed?
+
+
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight;
 const y = canvas.height / 2;
 
-/* addEventListener("keypress", function (e) { // No need to reference the WINDOW OBJECT, JavaScript does it IMPLICITLY
-    if (e.key === " ") {
-        //console.log(e);
-        console.log("clicked");
-        const projectile = new Projectile;
-    }
-}) */
