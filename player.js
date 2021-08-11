@@ -13,10 +13,17 @@ class Player {
         ctx.fill()
     }
 
+    up() {
+        
+    }
+
     update() {
         this.y += 1;
         this.draw();
     }
+
+
+    
 }
 
 const x = canvas.width / 2;
@@ -24,13 +31,16 @@ const y = canvas.height / 2;
 
 const player = new Player(100, y, 30, 'blue');
 
-
 function animate() {
     requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
     player.draw();
     player.update();
     console.log('go')
 }
+
+  
+
 
 animate();
 
