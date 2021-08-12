@@ -17,8 +17,7 @@ class Player {
     }
 
     up() {
-        this.gravity += this.lift;
-        console.log(this.gravity);
+        this.velocity += -this.gravity * 10;
     }
 
     update() {
@@ -31,14 +30,11 @@ class Player {
             this.velocity = 0;
         }
 
-        if (this.y > 0) { // why did I need to add canvas before height?
+     /*    if (this.y > 0) { // why did I need to add canvas before height?
             this.y = 0;
             this.velocity = 0;
-        }
+        } */
     }
-
-    
-    
 }
 
 const x = canvas.width / 2;
@@ -51,8 +47,14 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
     player.draw();
     player.update();
-    console.log('go')
 }
+
+addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+      console.log('Space pressed')
+      player.up();
+    }
+  })
 
 animate();
 
