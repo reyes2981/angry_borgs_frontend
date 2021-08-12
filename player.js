@@ -1,9 +1,12 @@
 class Player {
-    constructor(x, y, radius, color) { // constructor allows for class properties to be unique for each object that is created
+    constructor(x, y, radius, color, gravity) { // constructor allows for class properties to be unique for each object that is created
         this.x = x
         this.y = y
         this.radius = radius
         this.color = color
+        this.gravity = 0.6;
+        this.velocity = 0;
+        this.lift = -15;
     }
 
     draw() {
@@ -14,15 +17,27 @@ class Player {
     }
 
     up() {
-        
+        this.gravity += this.lift;
+        console.log(this.gravity);
     }
 
     update() {
-        this.y += 1;
+        this.velocity += this.gravity;
+        this.y += this.velocity;
         this.draw();
+
+        if (this.y > canvas.height) { // why did I need to add canvas before height?
+            this.y = canvas.height;
+            this.velocity = 0;
+        }
+
+        if (this.y > 0) { // why did I need to add canvas before height?
+            this.y = 0;
+            this.velocity = 0;
+        }
     }
 
-
+    
     
 }
 
@@ -38,9 +53,6 @@ function animate() {
     player.update();
     console.log('go')
 }
-
-  
-
 
 animate();
 
