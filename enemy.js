@@ -2,6 +2,7 @@ const enemies = [];
 
 class Enemy extends Draw {
     constructor(x, y, radius, color, velocity) {
+        super();
         this.x = x
         this.y = y
         this.radius = radius
@@ -21,8 +22,8 @@ function spawnEnemies() {
             y: 1
         }
         enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
-        //console.log('go');
-        // console.log(enemies);
+        console.log('go');
+        console.log(enemies);
      }, 1000)
 }
 
@@ -35,5 +36,5 @@ function spawnEnemies() {
         enemy.update();
     })
 }
-
-spawnEnemies(); */
+*/
+spawnEnemies(); 
