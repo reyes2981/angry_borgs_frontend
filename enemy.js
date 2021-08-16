@@ -1,18 +1,17 @@
 const enemies = [];
 
 class Enemy extends Draw {
-    constructor(x, y, radius, color, velocity, gravity) {
+    constructor(x, y, radius, color, velocity) {
         this.x = x
         this.y = y
         this.radius = radius
         this.color = color
         this.velocity = velocity
-        this.gravity = gravity
-    }
+      }
 }
 
 function spawnEnemies() {
-     setInterval(() => {
+     setInterval(() => { // the first argument in set interval is a callback function
         const x = 100;
         const y = 100;
         const radius = 30
