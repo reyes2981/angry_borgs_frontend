@@ -6,3 +6,4 @@ class Draw {
         ctx.fill()
     }
 }
+

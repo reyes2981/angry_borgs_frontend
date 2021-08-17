@@ -9,10 +9,16 @@ class Enemy extends Draw {
         this.color = color
         this.velocity = velocity
       }
+
+      update() {
+          this.draw()
+          this.x = this.x + this.velocity.x
+          this.y = this.y + this.velocity.y
+      }
 }
 
 function spawnEnemies() {
-     setInterval(() => { // the first argument in set interval is a callback function
+     setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
         const x = 100;
         const y = 100;
         const radius = 30
@@ -27,14 +33,13 @@ function spawnEnemies() {
      }, 1000)
 }
 
-/* function animate() {
+function animateEnemies() {
     requestAnimationFrame(animate)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    enemy.draw();
+    enemies.draw();
 
     enemies.forEach((enemy) => {
         enemy.update();
     })
 }
-*/
 spawnEnemies(); 

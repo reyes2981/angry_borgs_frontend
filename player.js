@@ -1,3 +1,6 @@
+//const x = canvas.width / 2;
+const y = canvas.height / 2;
+
 class Player extends Draw {
     constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
         super(); // You can use the super() method to call the constructor of a parent class
@@ -28,9 +31,6 @@ class Player extends Draw {
     }
 }
 
-const x = canvas.width / 2;
-const y = canvas.height / 2;
-
 const player = new Player(100, y, 30, 'blue', 0.6, 0, -15);
 console.log(player)
 
@@ -39,6 +39,7 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
     player.draw();
     player.update();
+
 }
 
 addEventListener('keyup', event => {
