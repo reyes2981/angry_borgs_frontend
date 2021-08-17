@@ -28,18 +28,19 @@ function spawnEnemies() {
             y: 1
         }
         enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
-        console.log('go');
         console.log(enemies);
      }, 1000)
 }
 
-function animateEnemies() {
-    requestAnimationFrame(animate)
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    enemies.draw();
+function animate() { 
+    requestAnimationFrame(animate); // what does this function do?
+    ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
+    player.draw();
+    player.update();
 
-    enemies.forEach((enemy) => {
+    enemies.forEach(enemy => {
         enemy.update();
     })
 }
 spawnEnemies(); 
+animate();

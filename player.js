@@ -20,7 +20,7 @@ class Player extends Draw {
 
     update() {
         this.velocity += this.gravity;
-        this.velocity += 0.8 ;
+        this.velocity += 0.175;
         this.y += this.velocity;
         this.draw();
 
