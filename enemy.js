@@ -1,3 +1,7 @@
+const y = canvas.height / 2;
+const x = canvas.height / 2;
+
+
 const enemies = [];
 
 class Enemy extends Draw {
@@ -19,14 +23,19 @@ class Enemy extends Draw {
 
 function spawnEnemies() {
      setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
-        const x = 100;
+        const x = Math.random() * canvas.width;
         const y = 100;
         const radius = 30
         const color = 'green'
+        const angle = Math.atan2(
+            canvas.height / 2 - y,
+            canvas.height /2 - x
+        )
         const velocity = { 
-            x: 1,
-            y: 1
+            x: Math.cos(angle),
+            y: Math.sin(angle)
         }
+
         enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
         console.log(enemies);
      }, 1000)
