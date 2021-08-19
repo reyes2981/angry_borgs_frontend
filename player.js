@@ -1,4 +1,4 @@
-//const x = canvas.width / 2;
+const x = canvas.width / 2;
 const y = canvas.height / 2;
 
 class Player extends Draw {
@@ -20,7 +20,7 @@ class Player extends Draw {
 
     update() {
         this.velocity += this.gravity;
-        this.velocity += 0.175;
+        this.velocity += 0;
         this.y += this.velocity;
         this.draw();
 
@@ -28,10 +28,17 @@ class Player extends Draw {
             this.y = canvas.height;
             this.velocity = 0;
         } 
+
+        if (this.y < 0) { // why did I need to add canvas before height?
+            this.y = 0;
+            this.velocity = 0;
+        } 
+
+       
     }
 }
 
-const player = new Player(100, y, 30, 'blue', 0.6, 0, -15);
+const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
 console.log(player)
 
 function animate() { 
@@ -48,7 +55,7 @@ addEventListener('keyup', event => {
       player.up();
 
     }
-  })
+})
 
 animate();
 
