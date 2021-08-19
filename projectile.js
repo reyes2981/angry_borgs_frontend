@@ -10,7 +10,6 @@ class Projectile extends Draw {
     }
 }
 
-
 function animate() { 
     requestAnimationFrame(animate); // what does this function do?
     ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
