@@ -22,8 +22,8 @@ class Enemy extends Draw {
 }
 
 function spawnEnemies() {
-     setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
-        const radius = 60
+     //setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
+        const radius = 75
         const x = canvas.width + radius;
         const y = Math.random() * canvas.width;
         const color = 'green'
@@ -35,18 +35,28 @@ function spawnEnemies() {
 
         enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
         console.log(enemies);
-     }, 5000)
+     //}, 5000)
 }
 
 function animate() { 
     requestAnimationFrame(animate); // what does this function do?
     ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
-    player.draw();
+    //player.draw();
     player.update();
 
     enemies.forEach(enemy => {
         enemy.update();
+        const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
+        console.log(distance);
+
+        if (distance - enemy. radius - enemy. radius < 1) {
+            console.log('player hit enemy');
+        }
     })
+
+    //TODO
+
+    //I need to determine the distance of player object and enemy objects
 }
 
 
