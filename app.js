@@ -8,7 +8,5 @@ canvas.height = innerHeight;
 let animationId; // confirm what this variable does again
 const enemies = [];
 
-
-
 //TODO 
 // do further research on projectile trajectory using javascript    

@@ -18,24 +18,6 @@ class Player extends UniClaMethods {
         console.log(this.velocity); // displays the velocity of the PLAYER object
     }
 
-    update() {
-        this.velocity += this.gravity;
-        this.velocity += 0;
-        this.y += this.velocity;
-        this.draw();
-
-        if (this.y > canvas.height) { // why did I need to add canvas before height?
-            this.y = canvas.height;
-            this.velocity = 0;
-        } 
-
-        if (this.y < 0) { // why did I need to add canvas before height?
-            this.y = 0;
-            this.velocity = 0;
-        } 
-
-       
-    }
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
