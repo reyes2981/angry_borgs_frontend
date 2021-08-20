@@ -14,11 +14,13 @@ function animate() {
         if (distance - player.radius - enemy.radius < 1) { // if the distance between player and enemy radius is less than 1 the game is paused
          cancelAnimationFrame(animationId); // do more research on this function
             // inscrease our score - I'm using TIME
-            
-       /*      score += 100;
-            scoreElement.innerHTML = score; */
+            clearInterval(interval);
         }
+
+       
     })
+
+    
 
     //TODO
 

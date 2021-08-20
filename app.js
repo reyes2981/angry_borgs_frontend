@@ -9,7 +9,6 @@ const scoreElement = document.querySelector('#scoreElement');
 console.log(scoreElement);
 
 let animationId; // confirm what this variable does again
-let score = 0;
 const enemies = [];
 
 let seconds = 00;
@@ -28,13 +27,19 @@ function startTimer() {
     if (tens > 9) {
         appendTens.innerHTML = tens;
     }
-    if (tens > 90) {
+    if (tens > 60) {
         seconds++;
         appendSeconds.innerHTML = '0' + seconds;
         tens = 0;
         appendTens.innerHTML = seconds;
     }
+}
 
+interval = setInterval(startTimer, seconds);
+
+function stopTimer() {
+    clearInterval(interval);
+    interval = 0;
 }
 
 //TODO 
