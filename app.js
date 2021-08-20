@@ -14,8 +14,28 @@ const enemies = [];
 
 let seconds = 00;
 let tens = 00;
-let appendTens;
+let appendTens = document.querySelector('#tens');
+let appendSeconds = document.querySelector('#seconds');
 let interval;
+
+// function will run when GAME begins 
+
+function startTimer() {
+    tens++;
+    if (tens < 9) {
+        appendTens.innerHTML = '0' + tens;
+    }
+    if (tens > 9) {
+        appendTens.innerHTML = tens;
+    }
+    if (tens > 90) {
+        seconds++;
+        appendSeconds.innerHTML = '0' + seconds;
+        tens = 0;
+        appendTens.innerHTML = seconds;
+    }
+
+}
 
 //TODO 
 // freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
