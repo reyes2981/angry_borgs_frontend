@@ -16,7 +16,6 @@ function animate() {
 
     //TODO
 
-    //I need to determine the distance of player object and enemy objects
 }
 
 animate();

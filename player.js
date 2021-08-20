@@ -1,7 +1,7 @@
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 
-class Player extends Draw {
+class Player extends UniClaMethods {
     constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
         super(); // You can use the super() method to call the constructor of a parent class
         this.x = x // x coordinate
@@ -40,14 +40,6 @@ class Player extends Draw {
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
 console.log(player)
-
-/* function animate() { 
-    requestAnimationFrame(animate); // what does this function do?
-    ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
-    player.draw();
-    player.update();
-
-} */
 
 addEventListener('keyup', event => {
     if (event.code === 'Space') {
