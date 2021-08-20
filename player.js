@@ -4,10 +4,10 @@ const y = canvas.height / 2;
 class Player extends UniClaMethods {
     constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
         super(); // You can use the super() method to call the constructor of a parent class
-        this.x = x // x coordinate
-        this.y = y // y coordinate
-        this.radius = radius // radius of player object
-        this.color = color // color of player object
+        this.x = x; // x coordinate
+        this.y = y; // y coordinate
+        this.radius = radius; // radius of player object
+        this.color = color; // color of player object
         this.gravity = gravity;
         this.velocity = velocity;
         this.lift = lift;
@@ -21,15 +21,13 @@ class Player extends UniClaMethods {
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
-console.log(player)
+console.log(player);
 
 addEventListener('keyup', event => {
     if (event.code === 'Space') {
-      console.log('Space pressed')
+      console.log('Space pressed');
       player.up();
     }
   
 })
-
-
 
