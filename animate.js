@@ -1,4 +1,4 @@
-function animate() { 
+function animate() {  // animation loop
     animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
@@ -14,9 +14,11 @@ function animate() {
         if (distance - player.radius - enemy.radius < 1) { // if the distance between player and enemy radius is less than 1 the game is paused
          cancelAnimationFrame(animationId); // do more research on this function
             // inscrease our score - I'm using TIME
-            clearInterval(interval);
+            clearInterval(interval); // pauses timer
         }
-
+    // TODO: 
+    // I need code that freezez timer if player touches the ground 
+    // I need to slowdown timer
        
     })
 

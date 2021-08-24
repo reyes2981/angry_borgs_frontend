@@ -10,9 +10,7 @@ class UniClaMethods {
 
     update() {
         this.velocity += this.gravity;
-        this.velocity += 0;
-        this.y += this.velocity;
-        this.draw();
+        this.y += this.velocity; // changes by this.velocity 
 
         if (this.y > canvas.height) { // why did I need to add canvas before height?
             this.y = canvas.height;
