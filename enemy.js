@@ -28,13 +28,13 @@ function spawnEnemies() {
         const color = 'green';
         const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x);
         const velocity = { 
-            x: Math.cos(angle) * 4, // enemies are moving at 2X their set spped
-            y: Math.sin(angle) * 4
+            x: Math.cos(angle) * 2, // enemies are moving at 2X their set spped
+            y: Math.sin(angle) * 2
         };
 
         enemies.push(new Enemy(x, y, radius, color, velocity)); // what does this do?
         console.log(enemies);
-     }, 5000) 
+     }, 3000) 
 }
 
 spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
