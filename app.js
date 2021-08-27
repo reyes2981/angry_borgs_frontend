@@ -3,8 +3,6 @@ canvas.hidden = true;
 const ctx = canvas.getContext('2d'); // context - i need to figure out why this is needed?
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
-const scoreElement = document.querySelector('#scoreElement');
-console.log(scoreElement);
 let animationId; // confirm what this variable does again
 const enemies = [];
 let seconds = 00;
@@ -36,9 +34,17 @@ const disableLoginButton = document.querySelector("button")
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
+    getPlayers();
 
 })
 
+function getPlayers() {
+    fetch('http://localhost:3000/api/v1/players')
+        .then(response => response.json()) // converts to JSON
+        .then(json => console.log(json)) // prints data to console
+
+    console.log("retreived players")
+}
 
 
 login_bttn.addEventListener("click", () => {
@@ -72,16 +78,26 @@ login_bttn.addEventListener("click", () => {
     formElem.appendChild(usernameElement); 
     formElem.appendChild(submitElem); 
 
-    //toggleGame();
+
+
                   
 })
 
 
+// toggleGame(); <- when does this need to be toggled?
+
+
+
+function requestLogin () {
+    console.log("Requesting login");
+}
 
 function stopTimer() {
     clearInterval(interval);
     interval = 0;
 }
+
+
 
 //TODO 
 // freeze frame should display player object - need to fix bug where player is being frozen with multiple frames

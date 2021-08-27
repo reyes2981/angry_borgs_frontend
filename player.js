@@ -21,7 +21,6 @@ class Player extends UniClaMethods {
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
-console.log(player);
 
 addEventListener('keyup', event => {
     if (event.code === 'Space') {
