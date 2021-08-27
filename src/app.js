@@ -12,6 +12,7 @@ let appendSeconds = document.querySelector('#seconds');
 let interval;
 const login_bttn = document.getElementById("login_bttn");
 const disableLoginButton = document.querySelector("button")
+const fetchApi = 'http://localhost:3000/api/v1/players';
 
 // function will run when GAME begins 
 /* function startTimer() {
@@ -39,49 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function getPlayers() {
-    fetch('http://localhost:3000/api/v1/players')
+    fetch(fetchApi)
         .then(response => response.json()) // converts to JSON
         .then(json => console.log(json)) // prints data to console
 
     console.log("retreived players")
 }
-
-
-login_bttn.addEventListener("click", () => {
-    console.log("login_bttn clicked");
-    disableLoginButton.disabled= true;
-    
-    
-    const formElem = document.createElement('form');
-    formElem.classList = "flex flex-col justify-center items-center"
-    formElem.setAttribute("method", "post");
-    formElem.setAttribute("action", "submit");
-    console.log(formElem);
-
-    const emailElement = document.createElement("input");
-    emailElement.setAttribute("type", "text");
-    emailElement.setAttribute("name", "email");
-    emailElement.setAttribute("placeholder", "E-Mail");
-
-    const usernameElement = document.createElement("input"); 
-    usernameElement.setAttribute("type", "text");
-    usernameElement.setAttribute("name", "username");
-    usernameElement.setAttribute("placeholder", "Username");
-
-    const submitElem = document.createElement("input");
-    submitElem.setAttribute("type", "submit");
-    submitElem.setAttribute("value", "Submit");
-
-
-    document.body.appendChild(formElem);
-    formElem.appendChild(emailElement); 
-    formElem.appendChild(usernameElement); 
-    formElem.appendChild(submitElem); 
-
-
-
-                  
-})
 
 
 // toggleGame(); <- when does this need to be toggled?
