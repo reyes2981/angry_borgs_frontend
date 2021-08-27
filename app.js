@@ -12,6 +12,8 @@ let tens = 00;
 let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
+const login_bttn = document.getElementById("login_bttn");
+const disableLoginButton = document.querySelector("button")
 
 // function will run when GAME begins 
 /* function startTimer() {
@@ -37,8 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+
+
 login_bttn.addEventListener("click", () => {
     console.log("login_bttn clicked");
+    disableLoginButton.disabled= true;
+    
     
     const formElem = document.createElement('form');
     formElem.classList = "flex flex-col justify-center items-center"
@@ -66,9 +72,10 @@ login_bttn.addEventListener("click", () => {
     formElem.appendChild(usernameElement); 
     formElem.appendChild(submitElem); 
 
-    toggleGame();
+    //toggleGame();
                   
 })
+
 
 
 function stopTimer() {
