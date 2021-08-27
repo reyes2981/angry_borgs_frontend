@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 login_bttn.addEventListener("click", () => {
     console.log("login_bttn clicked");
-    canvas.style.display="none";
+    //canvas.style.display="none";
     
     const formElem = document.createElement('form');
     formElem.setAttribute("method", "post");
@@ -66,7 +66,18 @@ login_bttn.addEventListener("click", () => {
 
                   
 })
+// toggles Game once player is logged in
 
+/* function toggleGame() {
+    var canvas = document.querySelector("canvas");
+    if (canvas.style.display === "none") {
+      canvas.style.display = "block";
+    } else {
+      canvas.style.display = "none";
+    }
+    console.log("hello from the toggleGame function");
+}
+ */
 
 function stopTimer() {
     clearInterval(interval);
