@@ -1,55 +1,40 @@
 const y = canvas.height / 2;
 const x = canvas.height / 2;
 
-
-const enemies = [];
-
-class Enemy extends Draw {
+class Enemy extends UniClaMethods {
     constructor(x, y, radius, color, velocity) {
         super();
-        this.x = x
-        this.y = y
-        this.radius = radius
-        this.color = color
-        this.velocity = velocity
-      }
-
-      update() {
-          this.draw()
-          this.x = this.x + this.velocity.x
-          this.y = this.y + this.velocity.y
-      }
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.velocity = velocity;
+    }
+    
+    // I need to figure out how to move this class function to UNICLAMETHODS file
+    
+    update() {
+        this.draw();
+        this.x = this.x + this.velocity.x;
+        this.y = this.y + this.velocity.y;
+    } 
 }
 
 function spawnEnemies() {
      setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
-        const radius = 60
+        const radius = 75;
         const x = canvas.width + radius;
         const y = Math.random() * canvas.width;
-        const color = 'green'
-        const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x)
+        const color = 'green';
+        const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x);
         const velocity = { 
-            x: Math.cos(angle),
-            y: Math.sin(angle)
-        }
+            x: Math.cos(angle) * 2, // enemies are moving at 2X their set spped
+            y: Math.sin(angle) * 2
+        };
 
-        enemies.push(new Enemy(x, y, radius, color, velocity)) // what does this do?
+        enemies.push(new Enemy(x, y, radius, color, velocity)); // what does this do?
         console.log(enemies);
-     }, 5000)
+     }, 3000) 
 }
 
-function animate() { 
-    requestAnimationFrame(animate); // what does this function do?
-    ctx.clearRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
-    player.draw();
-    player.update();
-
-    enemies.forEach(enemy => {
-        enemy.update();
-    })
-}
-
-
-
-spawnEnemies(); 
-animate();
+spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
