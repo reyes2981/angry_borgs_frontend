@@ -13,7 +13,7 @@ let appendSeconds = document.querySelector('#seconds');
 let interval;
 
 // function will run when GAME begins 
-function startTimer() {
+/* function startTimer() {
     tens++;
     if (tens < 9) {
         appendTens.innerHTML = '0' + tens;
@@ -27,9 +27,9 @@ function startTimer() {
         tens = 0;
         appendTens.innerHTML = seconds;
     }
-}
+} */
 
-interval = setInterval(startTimer, seconds);
+//interval = setInterval(startTimer, seconds);
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
@@ -40,9 +40,31 @@ login_bttn.addEventListener("click", () => {
     console.log("login_bttn clicked");
     canvas.style.display="none";
     
-    let pElem = document.createElement('p');
-    pElem.textContent = 'This is a newly-added paragraph.';
-    document.body.appendChild(pElem);
+    const formElem = document.createElement('form');
+    formElem.setAttribute("method", "post");
+    formElem.setAttribute("action", "submit");
+    console.log(formElem);
+
+    const emailElement = document.createElement("input");
+    emailElement.setAttribute("type", "text");
+    emailElement.setAttribute("name", "email");
+    emailElement.setAttribute("placeholder", "E-Mail");
+
+    const usernameElement = document.createElement("input"); 
+    usernameElement.setAttribute("type", "text");
+    usernameElement.setAttribute("name", "username");
+    usernameElement.setAttribute("placeholder", "Username");
+
+    const submitElem = document.createElement("input");
+    submitElem.setAttribute("type", "submit");
+    submitElem.setAttribute("value", "Submit");
+
+    document.body.appendChild(formElem);
+    formElem.appendChild(emailElement); 
+    formElem.appendChild(usernameElement); 
+    formElem.appendChild(submitElem); 
+
+                  
 })
 
 
