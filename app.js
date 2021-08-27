@@ -1,4 +1,5 @@
 const canvas = document.querySelector('canvas'); // reference to the CANVAS element
+canvas.hidden = true;
 const ctx = canvas.getContext('2d'); // context - i need to figure out why this is needed?
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
@@ -38,9 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 login_bttn.addEventListener("click", () => {
     console.log("login_bttn clicked");
-    //canvas.style.display="none";
     
     const formElem = document.createElement('form');
+    formElem.classList = "flex flex-col justify-center items-center"
     formElem.setAttribute("method", "post");
     formElem.setAttribute("action", "submit");
     console.log(formElem);
@@ -59,25 +60,16 @@ login_bttn.addEventListener("click", () => {
     submitElem.setAttribute("type", "submit");
     submitElem.setAttribute("value", "Submit");
 
+
     document.body.appendChild(formElem);
     formElem.appendChild(emailElement); 
     formElem.appendChild(usernameElement); 
     formElem.appendChild(submitElem); 
 
+    toggleGame();
                   
 })
-// toggles Game once player is logged in
 
-/* function toggleGame() {
-    var canvas = document.querySelector("canvas");
-    if (canvas.style.display === "none") {
-      canvas.style.display = "block";
-    } else {
-      canvas.style.display = "none";
-    }
-    console.log("hello from the toggleGame function");
-}
- */
 
 function stopTimer() {
     clearInterval(interval);
