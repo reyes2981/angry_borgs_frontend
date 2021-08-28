@@ -23,40 +23,17 @@ login_bttn.addEventListener("click", () => {
 
     document.body.appendChild(formElem);
     formElem.appendChild(emailElement); 
-    formElem.appendChild(usernameElement); 
+    formElem.appendChild(usernameElement);   
     formElem.appendChild(submitElem);  
-    console.log("login_bttn clicked");
 
-    submitElem.addEventListener("click", (e) => {
+    formElem.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log("submit clicked")
 
-        getPlayers();
     })
 
    
    
             
 })
-
-function getPlayers() {
-    let playerData = {
-      
-    };
-    
-    let configObject = {
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-            "Accept": "application/json"
-        }, 
-        body: JSON.stringify(playerData)
-    };
-    
-    fetch(fetchApi, configObject)
-        .then(function(response) {
-            return response.json();
-        })
-        
-}
 

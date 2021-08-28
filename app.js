@@ -11,9 +11,11 @@ let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
 const login_bttn = document.getElementById("login_bttn");
+const signup_bttn = document.getElementById("signup_bttn");
+console.log(signup_bttn);
 const disableLoginButton = document.querySelector("button")
 const fetchApi = 'http://localhost:3000/api/v1/players';
-
+// I need to refactor code into classes
 // function will run when GAME begins 
 /* function startTimer() {
     tens++;
@@ -35,22 +37,10 @@ const fetchApi = 'http://localhost:3000/api/v1/players';
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
-    getPlayers();
 
 })
 
-function getPlayers() {
-    fetch(fetchApi)
-        .then(response => response.json()) // converts to JSON
-        .then(json => console.log(json)) // prints data to console
-
-    console.log("retreived players")
-}
-
-
 // toggleGame(); <- when does this need to be toggled?
-
-
 
 function requestLogin () {
     console.log("Requesting login");
