@@ -1,5 +1,4 @@
-login_bttn.addEventListener("click", () => {
-    disableLoginButton.disabled= true;
+signup_bttn.addEventListener("click", () => {
     const formElem = document.createElement('form');
     formElem.classList = "flex flex-col justify-center items-center"
     formElem.setAttribute("method", "post");
