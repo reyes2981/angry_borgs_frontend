@@ -10,9 +10,6 @@ let tens = 00;
 let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
-const login_bttn = document.getElementById("login_bttn");
-const signup_bttn = document.getElementById("signup_bttn");
-const disableFormButtons = document.getElementsByClassName("player-forms")
 const fetchApi = 'http://localhost:3000/api/v1/players';
 
 document.addEventListener("DOMContentLoaded", () => {
