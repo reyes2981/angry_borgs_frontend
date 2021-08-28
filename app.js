@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-function requestLogin () {
-    console.log("Requesting login");
-}
 
 function stopTimer() {
     clearInterval(interval);

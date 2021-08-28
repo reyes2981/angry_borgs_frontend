@@ -1,19 +1,24 @@
-const login_bttn = document.getElementById("login_bttn");
-const signup_bttn = document.getElementById("signup_bttn");
+const loginBttn = document.getElementById("login_bttn");
+const signupBttn = document.getElementById("signup_bttn");
 
-login_bttn.addEventListener('click', () => {
+loginBttn.addEventListener('click', () => {
     createForm();
     console.log('login button clicked');
-}) 
 
+}, { once: true }) // Use addEventListener instead, and you can attach the listener with a once option, which means it will only run once
 
-//let form = new Form(); // calls a new form and saves it to the variable 'form'
-function createForm () {
+signupBttn.addEventListener('click', () => {
+    createForm();
+    console.log('login button clicked');
+
+}, { once: true }) 
+
+function createForm() {
+
     const formElem = document.createElement('form');
     formElem.classList = "flex flex-col justify-center items-center"
     formElem.setAttribute("method", "post");
     formElem.setAttribute("action", "submit");
-    console.log(formElem);
 
     const emailElement = document.createElement("input");
     emailElement.setAttribute("type", "text");
@@ -34,5 +39,13 @@ function createForm () {
     formElem.appendChild(emailElement); 
     formElem.appendChild(usernameElement);   
     formElem.appendChild(submitElem);  
-    }
 
+    formElem.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("submit clicked")
+
+    })
+}
+
+//TODO
+// I need to disable login and sign up buttons once they are clicked
