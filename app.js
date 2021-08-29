@@ -15,17 +15,32 @@ const fetchApi = 'http://localhost:3000/api/v1/players';
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
 
+    
 })
 
+// confirmed data from API is accesible 
 
-function stopTimer() {
-    clearInterval(interval);
-    interval = 0;
-}
 
 //TODO 
 // freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
 // score will be determined by amount of time before collision of canvas and enemy objects occurs
 // 
 
+/* let formData = {
+    username: this.username,
+    email: this.email
+  };
+  
+  let configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(formData)
+  };
+
+  console.log(configObj) */
+  
+   
 

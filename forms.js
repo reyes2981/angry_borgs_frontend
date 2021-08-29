@@ -43,9 +43,39 @@ function createForm() {
     formElem.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log("submit clicked")
+        playerLogin();
 
     })
+
+    function playerLogin() {
+
+        let formData = {
+            username: 'username',
+            email: 'email'
+          };
+          
+           let configObj = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+              "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(formData)
+          }; 
+        
+          
+           fetch(fetchApi, configObj)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(object) {
+              console.log(object);
+            });  
+        
+    }
 }
 
 //TODO
 // I need to disable login and sign up buttons once they are clicked
+

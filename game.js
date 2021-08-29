@@ -3,6 +3,12 @@ function toggleGame() {
     console.log("hello from the toggleGame function");
 }
 
+/* function stopTimer() {
+    clearInterval(interval);
+    interval = 0;
+} */
+
+
 // I need to refactor code into classes
 // function will run when GAME begins 
 /* function startTimer() {
