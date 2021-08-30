@@ -24,11 +24,13 @@ function createForm() {
     emailElement.setAttribute("type", "text");
     emailElement.setAttribute("name", "email");
     emailElement.setAttribute("placeholder", "E-Mail");
+    emailElement.setAttribute("id", "email");
 
     const usernameElement = document.createElement("input"); 
     usernameElement.setAttribute("type", "text");
     usernameElement.setAttribute("name", "username");
     usernameElement.setAttribute("placeholder", "Username");
+    emailElement.setAttribute("id", "username");
 
     const submitElem = document.createElement("input");
     submitElem.setAttribute("type", "submit");
