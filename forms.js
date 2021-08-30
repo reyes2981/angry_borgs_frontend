@@ -9,7 +9,7 @@ loginBttn.addEventListener('click', () => {
 
 signupBttn.addEventListener('click', () => {
     createForm();
-    console.log('login button clicked');
+    console.log('signup button clicked');
 
 }, { once: true }) 
 
@@ -17,8 +17,8 @@ function createForm() {
 
     const formElem = document.createElement('form');
     formElem.classList = "flex flex-col justify-center items-center"
-    formElem.setAttribute("method", "post");
-    formElem.setAttribute("action", "submit");
+    //formElem.setAttribute("method", "post");
+    //formElem.setAttribute("action", "submit");
 
     const emailElement = document.createElement("input");
     emailElement.setAttribute("type", "text");
@@ -39,7 +39,7 @@ function createForm() {
     formElem.appendChild(emailElement); 
     formElem.appendChild(usernameElement);   
     formElem.appendChild(submitElem);  
-
+    console.log(formElem); 
     formElem.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log("submit clicked")
@@ -47,35 +47,37 @@ function createForm() {
 
     })
 
-    function playerLogin() {
-
-        let formData = {
-            username: 'username',
-            email: 'email'
-          };
-          
-           let configObj = {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json",
-              "Access-Control-Allow-Origin": "*"
-            },
-            body: JSON.stringify(formData)
-          }; 
+    
         
-          
-           fetch(fetchApi, configObj)
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(object) {
-              console.log(object);
-            });  
-        
-    }
 }
 
 //TODO
 // I need to disable login and sign up buttons once they are clicked
 
+function playerLogin() {
+
+    let formData = {
+        username: username.target,
+        email: email.target
+      };
+      
+       let configObj = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Access-Control-Allow-Origin": "*",
+         
+        },
+        body: JSON.stringify(formData)
+      }; 
+    
+      
+       fetch(fetchApi, configObj)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(object) {
+          console.log(object);
+        });  
+    }
