@@ -18,29 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
-// confirmed data from API is accesible 
 
-
-//TODO 
-// freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
-// score will be determined by amount of time before collision of canvas and enemy objects occurs
-// 
-
-/* let formData = {
-    username: this.username,
-    email: this.email
-  };
-  
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  };
-
-  console.log(configObj) */
-  
-   
 

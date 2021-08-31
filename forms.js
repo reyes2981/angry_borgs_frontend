@@ -1,7 +1,5 @@
-const loginBttn = document.getElementById("login_bttn");
+/* const loginBttn = document.getElementById("login_bttn");
 const signupBttn = document.getElementById("signup_bttn");
-
-
 
 loginBttn.addEventListener('click', () => {
     console.log('login button clicked');
@@ -12,14 +10,12 @@ signupBttn.addEventListener('click', () => {
     createForm();
     console.log('signup button clicked');
 
-}, { once: true }) 
+}, { once: true })
 
 function createForm() {
-    
+
     const formElem = document.createElement('form');
     formElem.classList = "flex flex-col justify-center items-center"
-    //formElem.setAttribute("method", "post");
-    //formElem.setAttribute("action", "submit");
 
     const emailElement = document.createElement("input");
     emailElement.setAttribute("type", "text");
@@ -27,7 +23,7 @@ function createForm() {
     emailElement.setAttribute("placeholder", "E-Mail");
     emailElement.setAttribute("id", "email");
 
-    const usernameElement = document.createElement("input"); 
+    const usernameElement = document.createElement("input");
     usernameElement.setAttribute("type", "text");
     usernameElement.setAttribute("name", "username");
     usernameElement.setAttribute("placeholder", "Username");
@@ -37,53 +33,46 @@ function createForm() {
     submitElem.setAttribute("type", "submit");
     submitElem.setAttribute("value", "Submit");
 
-
     document.body.appendChild(formElem);
-    formElem.appendChild(emailElement); 
-    formElem.appendChild(usernameElement);   
-    formElem.appendChild(submitElem);  
-    console.log(formElem); 
+    formElem.appendChild(emailElement);
+    formElem.appendChild(usernameElement);
+    formElem.appendChild(submitElem);
+    console.log(formElem);
     formElem.addEventListener("submit", (e) => {
         e.preventDefault();
         console.log("submit clicked")
-        playerSignup();
     })
 
-        
+  
 }
-
-
-
-//TODO
-// I need to disable login and sign up buttons once they are clicked
 
 function playerSignup() {
 
-const email = document.getElementById('email');
- const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const username = document.getElementById('username');
 
     let formData = {
         username: username.value,
         email: email.value
-      };
-      
-       let configObj = {
+    };
+
+    let configObj = {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Access-Control-Allow-Origin": "*",
-         
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Access-Control-Allow-Origin": "*",
+
         },
         body: JSON.stringify(formData)
-      }; 
-    
-      
-       fetch(fetchApi, configObj)
-        .then(function(response) {
-          return response.json();
+    };
+
+
+    fetch(fetchApi, configObj)
+        .then(function (response) {
+            return response.json();
         })
-        .then(function(object) {
-          console.log(object);
-        });  
-    }
+        .then(function (object) {
+            console.log(object);
+        });
+} */

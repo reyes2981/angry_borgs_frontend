@@ -1,3 +1,8 @@
+//TODO 
+// freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
+// score will be determined by amount of time before collision of canvas and enemy objects occurs
+
+
 function toggleGame() {
 
     console.log("hello from the toggleGame function");
