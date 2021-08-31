@@ -1,43 +1,85 @@
-class Form {
-    createForm() {
+// Global variables that select sign up and login elements in index.html
+const loginBttn = document.getElementById("login_bttn");
+const signupBttn = document.getElementById("signup_bttn");
 
+class Form {
+    constructor() {
         const formElem = document.createElement('form');
         formElem.classList = "flex flex-col justify-center items-center"
-    
+
         const emailElement = document.createElement("input");
         emailElement.setAttribute("type", "text");
         emailElement.setAttribute("name", "email");
         emailElement.setAttribute("placeholder", "E-Mail");
         emailElement.setAttribute("id", "email");
-    
+
         const usernameElement = document.createElement("input");
         usernameElement.setAttribute("type", "text");
         usernameElement.setAttribute("name", "username");
         usernameElement.setAttribute("placeholder", "Username");
         usernameElement.setAttribute("id", "username");
-    
+
         const submitElem = document.createElement("input");
         submitElem.setAttribute("type", "submit");
         submitElem.setAttribute("value", "Submit");
-    
+
         document.body.appendChild(formElem);
         formElem.appendChild(emailElement);
         formElem.appendChild(usernameElement);
         formElem.appendChild(submitElem);
         console.log(formElem);
-         
     }
+ 
 }
 
-form = new Form.createForm;
-
-const signupBttn = document.getElementById("signup_bttn");
-
-signupBttn.addEventListener('click', () => {
-    form;
+signupBttn.addEventListener('click', (e) => {
+    e.preventDefault();
     console.log('signup button clicked');
+    createForm();
 
-}, { once: true })
+}, { once: true }) 
+
+function createForm() {
+    form = new Form();
+    console.log(form);
+    console.log('signup button clicked');
+    
+}
+
+function signupPlayer() {
+
+}
+
+function playerSignup() {
+
+    const email = document.getElementById('email');
+    const username = document.getElementById('username');
+
+    let formData = {
+        username: username.value,
+        email: email.value
+    };
+
+    let configObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Access-Control-Allow-Origin": "*",
+
+        },
+        body: JSON.stringify(formData)
+    };
+
+
+    fetch(fetchApi, configObj)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (object) {
+            console.log(object);
+        });
+} 
 
 /* const loginBttn = document.getElementById("login_bttn");
 
@@ -79,7 +121,7 @@ function createForm() {
         console.log("submit clicked")
     })
 
-  
+
 }
 
 function playerSignup() {
