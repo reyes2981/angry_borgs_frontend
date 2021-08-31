@@ -1,8 +1,6 @@
 // UNIVERSAL CLASS METHODS
 
 class UniClaMethods { 
-    // Creates LOGIN/REGISTRATION form
-    
 
     // GAME METHODS
     draw() { 
