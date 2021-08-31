@@ -1,6 +1,10 @@
 // UNIVERSAL CLASS METHODS
 
 class UniClaMethods { 
+    // Creates LOGIN/REGISTRATION form
+    
+
+    // GAME METHODS
     draw() { 
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
