@@ -14,10 +14,14 @@ signupBttn.addEventListener('click', (e) => {
 
 
 function renderForm() {
+    const formContainer = document.createElement('div');
     const f = document.createElement('form');
+
     const emailElement = document.createElement("input");
     const usernameElement = document.createElement("input");       
     const submitBttn = document.createElement("input");
+
+    formContainer.classList = "flex flex-col justify-center items-center"
 
     emailElement.setAttribute("type", "text");
     emailElement.setAttribute("placeholder", "Email");
@@ -27,19 +31,20 @@ function renderForm() {
     usernameElement.setAttribute("placeholder", "Username");
     usernameElement.setAttribute("id", "username");
 
-    document.body.appendChild(f);
-    f.classList = "flex flex-col justify-center items-center"
+    submitBttn.setAttribute("type", "submit");
+
+    document.body.appendChild(formContainer);
+    formContainer.appendChild(f);
     f.appendChild(emailElement);
     f.appendChild(usernameElement);
-    f.append(submitBttn)
-
-
-    console.log(f);
+    f.appendChild(submitBttn); 
+    console.log(formContainer);
 
     f.addEventListener("submit", (e) => {
 
         e.preventDefault();
-        createPlayer(email, username);
+        console.log('player created');
+        //createPlayer(email, username);
 
     })
 
