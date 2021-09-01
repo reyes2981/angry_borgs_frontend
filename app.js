@@ -10,13 +10,20 @@ let tens = 00;
 let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
-const fetchApi = 'http://localhost:3000/api/v1/players';
+const fetchApi = "http://localhost:3000/api/v1/players"
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
+    getPlayers();
 
-    
 })
 
-
-
+//Retrieve players -- GET REQUEST - READ ONLY
+function getPlayers() {
+    fetch(fetchApi)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (object) {
+        });
+}

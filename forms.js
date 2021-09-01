@@ -1,147 +1,73 @@
 // Global variables that select sign up and login elements in index.html
 const loginBttn = document.getElementById("login_bttn");
 const signupBttn = document.getElementById("signup_bttn");
-const emailElement = document.createElement("input");
-const usernameElement = document.createElement("input");
+const email = document.getElementById('email');
+const username = document.getElementById('username');
+
 
 signupBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    createForm();
+    renderForm();
     console.log('signup button clicked');
 
 }, { once: true })
 
 
-function createForm() {
-    const formElem = document.createElement('form');
-    formElem.classList = "flex flex-col justify-center items-center"
-    const submitElem = document.createElement("input");
-
-    emailElement.setAttribute("type", "text");
-    emailElement.setAttribute("name", "email");
-    emailElement.setAttribute("placeholder", "E-Mail");
-    emailElement.setAttribute("id", "email");
-
-    usernameElement.setAttribute("type", "text");
-    usernameElement.setAttribute("name", "username");
-    usernameElement.setAttribute("placeholder", "Username");
-    usernameElement.setAttribute("id", "username");
-
-    submitElem.setAttribute("type", "submit");
-
-    document.body.appendChild(formElem);
-    formElem.appendChild(emailElement);
-    formElem.appendChild(usernameElement);
-    formElem.appendChild(submitElem);
-    console.log(formElem);
-
-    formElem.addEventListener("submit", (e) => {
-        e.preventDefault();
-        playerSignup();
-        console.log('player crated successfully')
-    })
-}
-
-
-function playerSignup() {
-/*  const email = document.getElementById('email');
-    const username = document.getElementById('username'); */
-    
-
-    let formData = {
-        username: username.value,
-        email: email.value
-    };
-
-    let configObj = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Access-Control-Allow-Origin": "*",
-
-        },
-        body: JSON.stringify(formData)
-    };
-
-
-    fetch(fetchApi, configObj)
-        .then(function (response) {
-            return response.json();
-        })
- 
-}
-
-/* const loginBttn = document.getElementById("login_bttn");
-
-loginBttn.addEventListener('click', () => {
-    console.log('login button clicked');
-
-}, { once: true }) // Use addEventListener instead, and you can attach the listener with a once option, which means it will only run once
-
-
-
-function createForm() {
-
-    const formElem = document.createElement('form');
-    formElem.classList = "flex flex-col justify-center items-center"
-
+function renderForm() {
+    const f = document.createElement('form');
     const emailElement = document.createElement("input");
+    const usernameElement = document.createElement("input");       
+    const submitBttn = document.createElement("input");
+
     emailElement.setAttribute("type", "text");
-    emailElement.setAttribute("name", "email");
-    emailElement.setAttribute("placeholder", "E-Mail");
+    emailElement.setAttribute("placeholder", "Email");
     emailElement.setAttribute("id", "email");
 
-    const usernameElement = document.createElement("input");
     usernameElement.setAttribute("type", "text");
-    usernameElement.setAttribute("name", "username");
     usernameElement.setAttribute("placeholder", "Username");
     usernameElement.setAttribute("id", "username");
 
-    const submitElem = document.createElement("input");
-    submitElem.setAttribute("type", "submit");
-    submitElem.setAttribute("value", "Submit");
+    document.body.appendChild(f);
+    f.classList = "flex flex-col justify-center items-center"
+    f.appendChild(emailElement);
+    f.appendChild(usernameElement);
+    f.append(submitBttn)
 
-    document.body.appendChild(formElem);
-    formElem.appendChild(emailElement);
-    formElem.appendChild(usernameElement);
-    formElem.appendChild(submitElem);
-    console.log(formElem);
-    formElem.addEventListener("submit", (e) => {
+
+    console.log(f);
+
+    f.addEventListener("submit", (e) => {
+
         e.preventDefault();
-        console.log("submit clicked")
+        createPlayer(email, username);
+
     })
 
 
 }
 
-function playerSignup() {
+// SIGN UP - POST REQUEST - CREATE
+function createPlayer(username, email) { // Going to hit CREATE method in backend API
+    
+    console.log(username, email)
 
-    const email = document.getElementById('email');
-    const username = document.getElementById('username');
+    const formData = {
+        username: username,
+        email: email
+    } 
 
-    let formData = {
-        username: username.value,
-        email: email.value
-    };
-
-    let configObj = {
+    fetch(fetchApi, {
+        // POST request
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Access-Control-Allow-Origin": "*",
-
-        },
+        headers: {"Content-Type": "application/json"}, 
         body: JSON.stringify(formData)
-    };
-
-
-    fetch(fetchApi, configObj)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (object) {
-            console.log(object);
-        });
-} */
+    }) 
+    .then(response => response.json()) 
+    .then(player => {
+        console.log(player); 
+        const apptData = player.data
+        // render JSON response
+        //let newPlayer = new Player(apptData, apptData.attributes)
+        console.log(apptData);
+    })
+}
