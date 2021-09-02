@@ -14,16 +14,5 @@ const fetchApi = "http://localhost:3000/api/v1/players"
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded");
-    getPlayers();
-
 })
 
-//Retrieve players -- GET REQUEST - READ ONLY
-function getPlayers() {
-    fetch(fetchApi)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (object) {
-        });
-}
