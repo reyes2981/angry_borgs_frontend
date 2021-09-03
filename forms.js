@@ -1,6 +1,15 @@
 // Global variables that select sign up and login elements in index.html
 const loginBttn = document.getElementById("login_bttn");
 const signupBttn = document.getElementById("signup_bttn");
+const form = document.createElement('form');
+const emailElement = document.createElement("input");
+const usernameElement = document.createElement("input");
+const submitBttn = document.createElement("input");
+
+form.classList = "flex flex-col justify-center items-center"
+emailElement.setAttribute("placeholder", "Email");
+usernameElement.setAttribute("placeholder", "Username");
+submitBttn.type = "submit";
 
 signupBttn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -10,69 +19,40 @@ signupBttn.addEventListener('click', (e) => {
 }, { once: true })
 
 
+
 // SIGN UP - POST REQUEST - CREATE
 function renderSignupForm() {
 
-    function submitHandler(e) {
-        console.log('clicked')
-        e.preventDefault();
-    }
 
-    const form = document.createElement('form');
-    const emailElement = document.createElement("input");
-    const usernameElement = document.createElement("input");
-    const submitBttn = document.createElement("input");
-
-    emailElement.setAttribute("placeholder", "Email");
-    usernameElement.setAttribute("placeholder", "Username");
-    submitBttn.type = "submit";
-
-    form.addEventListener("submit", submitHandler);
     form.append(emailElement);
     form.append(usernameElement);
     form.append(submitBttn);
     document.body.appendChild(form);
     console.log(form);
 
- /*    formContainer.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
-        createPlayer();
-        console.log('player created successfully');
-    })
-
-    formContainer.classList = "flex flex-col justify-center items-center"
-
-    emailElement.setAttribute("type", "text");
-    emailElement.setAttribute("placeholder", "Email");
-
-    usernameElement.setAttribute("type", "text");
-    usernameElement.setAttribute("placeholder", "Username");
-    
-    submitBttn.setAttribute("type", "submit");
-    submitBttn.setAttribute("value", "Create Player");
-
-    formContainer.append(emailElement, usernameElement, submitBttn);
-    document.body.appendChild(formContainer);
-    console.log(formContainer); */
+        createUser();
+        console.log("player created successfully")
+    });
 }
 
-function createPlayer() { // Going to hit CREATE method in backend API
-
+function createUser() { // Going to hit CREATE method in backend API
     const formData = {
-        username: "",
-        email: "",
+       email: emailElement.value,
+       username: usernameElement.value
     }
 
-    const configObj = {
+console.log(formData);
+
+    fetch('http://localhost:3000/api/v1/players', {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-
-        },
-        body: JSON.stringify(formData)
-    };
-
-    fetch(fetchApi, configObj)
-
+        headers: {"Content-Type": "application/json"}, 
+        body: new FormData(formData)
+    })
+        //Then with the data from the response in JSON...
+        .then((user) => {
+            console.log('Success:', user);
+        })
 }
 

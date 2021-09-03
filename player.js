@@ -2,10 +2,8 @@ const x = canvas.width / 2;
 const y = canvas.height / 2;
 
 class Player extends UniClaMethods {
-    constructor(username, email, x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
+    constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
         super(); // You can use the super() method to call the constructor of a parent class
-        this.username = username;
-        this.email = email;
         this.x = x; // x coordinate
         this.y = y; // y coordinate
         this.radius = radius; // radius of player object
