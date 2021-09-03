@@ -10,8 +10,4 @@ let tens = 00;
 let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
-
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Content Loaded");
-})
-
+const endPoint = "http://localhost:3000/api/v1/players"

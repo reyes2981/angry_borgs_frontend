@@ -47,12 +47,14 @@ console.log(formData);
 
     fetch('http://localhost:3000/api/v1/players', {
         method: 'POST',
-        headers: {"Content-Type": "application/json"}, 
-        body: new FormData(formData)
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }, 
+        body: JSON.stringify(formData)
     })
         //Then with the data from the response in JSON...
         .then((user) => {
             console.log('Success:', user);
         })
 }
-
