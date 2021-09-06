@@ -33,6 +33,7 @@ function spawnEnemies() {
         };
 
         enemies.push(new Enemy(x, y, radius, color, velocity)); // what does this do?
+        //console.log(enemies); 
      }, 3000) 
 }
 

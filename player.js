@@ -17,7 +17,6 @@ class Player extends UniClaMethods {
         this.velocity += this.lift;
         console.log(this.velocity); // displays the velocity of the PLAYER object
     }
-
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);

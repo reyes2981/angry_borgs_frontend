@@ -1,7 +1,12 @@
 //TODO 
 // freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
 // score will be determined by amount of time before collision of canvas and enemy objects occurs
+// I need to start organizing game in this file 
+// when user logs in/signs up succusfully a START sreen will appear 
 
+class Game {
+    
+}
 
 function toggleGame() {
 
