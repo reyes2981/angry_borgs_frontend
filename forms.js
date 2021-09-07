@@ -53,3 +53,15 @@ function createUser() { // Going to hit CREATE method in backend API
             console.log('Success:', user);
         })
 }
+
+function requestEmail (currentPlayer) {
+    let postData = {
+        method: 'POST',
+        headers:{
+            "Content-Type": 'application/json',
+            Accepts: 'application/json'
+          },
+          body: JSON.stringify(currentPlayer)
+    }
+    
+}

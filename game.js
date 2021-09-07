@@ -4,14 +4,24 @@
 // I need to start organizing game in this file 
 // when user logs in/signs up succusfully a START sreen will appear 
 
-class Game {
-    
+class GameContainer {
+
+    render() {
+        
+    }
+
 }
 
-function toggleGame() {
+game = new GameContainer();
+console.log(game.render()); // game toggles onto console
 
-    console.log("hello from the toggleGame function");
+
+
+function renderNewGame()  {
+    console.log('new game')
 }
+
+
 
 /* function stopTimer() {
     clearInterval(interval);
@@ -38,4 +48,4 @@ function toggleGame() {
 } */
 
 //interval = setInterval(startTimer, seconds);
-// toggleGame(); <- when does this need to be toggled?
+
