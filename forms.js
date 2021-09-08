@@ -7,32 +7,47 @@ const form = document.createElement('form');
 const emailElement = document.createElement("input");
 const usernameElement = document.createElement("input");
 const submitBttn = document.createElement("input");
+const enterGame = document.createElement("input");
+
+
 
 form.classList = "flex flex-col justify-center items-center"
 emailElement.setAttribute("placeholder", "Email");
 usernameElement.setAttribute("placeholder", "Username");
 submitBttn.type = "submit";
+enterGame.type = "submit"
+enterGame.value = "Login"
 
 signupBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    renderSignupForm();
+    renderForm();
     console.log('signup button clicked');
 
 }, { once: true })
 
-function renderSignupForm() {
-    form.append(emailElement, usernameElement, submitBttn);
-    document.body.appendChild(form);
+loginBttn.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('login button clicked');
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        createUser();
-        console.log("player created successfully")
-    });
-}
+}, { once: true })
+
+submitBttn.addEventListener('click', (e) => {
+    e.preventDefault();
+    createPlayer();
+    console.log('player created');
+})
 
 // SIGN UP - POST REQUEST - CREATE
-function createUser() { // Going to hit CREATE method in backend API
+function renderForm() {
+    form.append(emailElement, usernameElement);
+    document.body.appendChild(form);
+  /*   form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("rendered form")
+    }); */
+}
+
+function createPlayer() { // Going to hit CREATE method in backend API
     const formData = {
        email: emailElement.value,
        username: usernameElement.value
@@ -54,14 +69,18 @@ function createUser() { // Going to hit CREATE method in backend API
         })
 }
 
-function requestEmail (currentPlayer) {
-    let postData = {
-        method: 'POST',
-        headers:{
-            "Content-Type": 'application/json',
-            Accepts: 'application/json'
-          },
-          body: JSON.stringify(currentPlayer)
-    }
-    
+// LOGIN - POST REQUEST - CREATE
+function renderLoginForm() {
+    form.append(emailElement, usernameElement, submitBttn);
+    document.body.appendChild(form);
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        loginPlayer();
+        console.log("player logged in succesfully")
+    });
+}
+
+function loginPlayer() {
+    console.log("player logged in succesfully")
 }
