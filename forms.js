@@ -1,51 +1,52 @@
 //TODO: Refactor code in this file
+// clear form fields once user clicks "submit" or "login"
 
 // Global variables that select sign up and login elements in index.html
-const loginBttn = document.getElementById("login_bttn");
+const enterGame = document.getElementById("login_bttn");
 const signupBttn = document.getElementById("signup_bttn");
 const form = document.createElement('form');
 const emailElement = document.createElement("input");
 const usernameElement = document.createElement("input");
 const submitBttn = document.createElement("input");
-const enterGame = document.createElement("input");
-
-
+const loginBttn = document.createElement("input");
 
 form.classList = "flex flex-col justify-center items-center"
 emailElement.setAttribute("placeholder", "Email");
 usernameElement.setAttribute("placeholder", "Username");
-submitBttn.type = "submit";
-enterGame.type = "submit"
-enterGame.value = "Login"
 
 signupBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    renderForm();
+    submitBttn.type = "submit";
+    submitBttn.value = "Create"
+    form.append(emailElement, usernameElement, submitBttn);
+    document.body.appendChild(form);
     console.log('signup button clicked');
-
 }, { once: true })
 
-loginBttn.addEventListener('click', (e) => {
+enterGame.addEventListener('click', (e) => {
     e.preventDefault();
+    loginBttn.type = "button";
+    loginBttn.value = "Enter Game";
+    form.append(emailElement, usernameElement, loginBttn);
+    document.body.appendChild(form);
     console.log('login button clicked');
 
 }, { once: true })
 
-submitBttn.addEventListener('click', (e) => {
+ submitBttn.addEventListener('click', (e) => {
     e.preventDefault();
     createPlayer();
     console.log('player created');
-})
+}) 
 
 // SIGN UP - POST REQUEST - CREATE
-function renderForm() {
-    form.append(emailElement, usernameElement);
+/* function renderForm() {
+    form.append(emailElement, usernameElement, submitBttn);
     document.body.appendChild(form);
-  /*   form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
-        console.log("rendered form")
-    }); */
-}
+    }); 
+} */
 
 function createPlayer() { // Going to hit CREATE method in backend API
     const formData = {
@@ -69,17 +70,6 @@ function createPlayer() { // Going to hit CREATE method in backend API
         })
 }
 
-// LOGIN - POST REQUEST - CREATE
-function renderLoginForm() {
-    form.append(emailElement, usernameElement, submitBttn);
-    document.body.appendChild(form);
-
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        loginPlayer();
-        console.log("player logged in succesfully")
-    });
-}
 
 function loginPlayer() {
     console.log("player logged in succesfully")
