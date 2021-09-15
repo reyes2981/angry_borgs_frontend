@@ -1,7 +1,5 @@
 function animate() {  // animation loop
     animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
     player.draw();
     player.update();
 

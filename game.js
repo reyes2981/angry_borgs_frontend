@@ -3,19 +3,17 @@
 // score will be determined by amount of time before collision of canvas and enemy objects occurs
 // I need to start organizing game in this file 
 // when user logs in/signs up succusfully a START sreen will appear
-class Game {
 
-   
-}
-
-/* function gameContainer() {
+function gameContainer() {
     renderCanvas();
-    animate();
+   // animate();
     playerMovement();
 }
 
 function renderCanvas() {
-} */
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
+} 
 
 /* function stopTimer() {
     clearInterval(interval);

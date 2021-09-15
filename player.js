@@ -40,8 +40,6 @@ class Player {
     }
 }
 
-const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
-console.log(player);
 
 function playerMovement() {
     addEventListener('keyup', event => {
