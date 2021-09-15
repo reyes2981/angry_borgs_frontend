@@ -22,9 +22,6 @@ function displayGameContainer() {
     enter.addEventListener("click", () => {
         console.log("ive been clicked");
         gameContainer();
-        const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
-        player.draw();
-        console.log(player);
     })
 }
 

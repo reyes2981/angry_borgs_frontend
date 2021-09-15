@@ -6,14 +6,18 @@
 
 function gameContainer() {
     renderCanvas();
-   // animate();
+    const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
+    player.draw();
+    console.log(player);
+    spawnEnemies();
+    // animate();
     playerMovement();
 }
 
 function renderCanvas() {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
-} 
+}
 
 /* function stopTimer() {
     clearInterval(interval);
