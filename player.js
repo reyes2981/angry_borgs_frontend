@@ -21,11 +21,13 @@ class Player extends UniClaMethods {
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
 
-addEventListener('keyup', event => {
-    if (event.code === 'Space') {
-      console.log('Space pressed');
-      player.up();
-    }
-  
-})
+function playerMovement() {
+    addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            console.log('Space pressed');
+            player.up();
+        }
+    })
+}
+
 

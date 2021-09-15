@@ -4,20 +4,10 @@
 // I need to start organizing game in this file 
 // when user logs in/signs up succusfully a START sreen will appear 
 
-class GameContainer {
-
-    render() {
-        
-    }
-
-}
-
-game = new GameContainer();
-
-
-
-function renderNewGame()  {
-    console.log('new game')
+function gameContainer() {
+ /*    const body = document.querySelector("body")
+    body.style.backgroundColor = 'green' ; */
+    animate();
 }
 
 
