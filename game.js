@@ -4,17 +4,18 @@
 // I need to start organizing game in this file 
 // when user logs in/signs up succusfully a START sreen will appear
 class Game {
-    
+
+   
 }
 
-function gameContainer() {
+/* function gameContainer() {
     renderCanvas();
     animate();
     playerMovement();
 }
 
 function renderCanvas() {
-}
+} */
 
 /* function stopTimer() {
     clearInterval(interval);

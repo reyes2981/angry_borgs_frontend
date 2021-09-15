@@ -1,9 +1,8 @@
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 
-class Player extends UniClaMethods {
+class Player {
     constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
-        super(); // You can use the super() method to call the constructor of a parent class
         this.x = x; // x coordinate
         this.y = y; // y coordinate
         this.radius = radius; // radius of player object
@@ -17,9 +16,32 @@ class Player extends UniClaMethods {
         this.velocity += this.lift;
         console.log(this.velocity); // displays the velocity of the PLAYER object
     }
+
+    draw() { 
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+        ctx.fillStyle = this.color
+        ctx.fill()
+    }
+
+    update() {
+        this.velocity += this.gravity;
+        this.y += this.velocity; // changes by this.velocity 
+
+        if (this.y > canvas.height) { // why did I need to add canvas before height?
+            this.y = canvas.height;
+            this.velocity = 0;
+        } 
+
+        if (this.y < 0) { // why did I need to add canvas before height?
+            this.y = 0;
+            this.velocity = 0;
+        } 
+    }
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
+console.log(player);
 
 function playerMovement() {
     addEventListener('keyup', event => {
