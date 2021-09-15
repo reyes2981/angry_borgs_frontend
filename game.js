@@ -6,13 +6,19 @@
 const x = canvas.height / 2; */
 
 function gameContainer() {
-    animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
     renderCanvas();
+    animatePlayer();
 }
 
 function renderCanvas() {
+    animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
+}
+
+function animatePlayer() {
+    player.draw();
+    player.update();
 }
 
 

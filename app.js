@@ -7,7 +7,6 @@ const ctx = canvas.getContext('2d'); //context - i need to figure out why this i
 //canvas.hidden = true;
 canvas.width = innerWidth - 2; //innerwidth is a property of a WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
-
 let animationId; // confirm what this variable does again
 const enemies = [];
 let seconds = 00;

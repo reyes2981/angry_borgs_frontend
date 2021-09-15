@@ -1,8 +1,9 @@
 const y = canvas.height / 2;
 const x = canvas.height / 2;
 
-class Player extends uniClassMethods {
+class Player extends UniClassMethods {
     constructor(x, y, radius, color, gravity, velocity, lift) { // constructor allows for class properties to be unique for each object that is created
+        super();
         this.x = x; // x coordinate
         this.y = y; // y coordinate
         this.radius = radius; // radius of player object

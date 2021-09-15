@@ -1,6 +1,6 @@
 // UNIVERSAL CLASS METHODS
-class UniClaMethods { 
-
+class UniClassMethods { 
+    
     draw() { 
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
