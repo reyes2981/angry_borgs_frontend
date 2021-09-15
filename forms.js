@@ -1,54 +1,53 @@
-//TODO: Refactor code in this file
-// clear form fields once user clicks "submit" or "login"
+/* //TODO: Refactor code in this file
 
 // Global variables that select sign up and login elements in index.html
-const enterGame = document.getElementById("login_bttn");
+const loginBttn = document.getElementById("login_bttn");
 const signupBttn = document.getElementById("signup_bttn");
 const form = document.createElement('form');
 const emailElement = document.createElement("input");
 const usernameElement = document.createElement("input");
 const submitBttn = document.createElement("input");
-const loginBttn = document.createElement("input");
 
 form.classList = "flex flex-col justify-center items-center"
 emailElement.setAttribute("placeholder", "Email");
 usernameElement.setAttribute("placeholder", "Username");
+submitBttn.type = "submit";
 
 signupBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    submitBttn.type = "submit";
-    submitBttn.value = "Create"
     form.append(emailElement, usernameElement, submitBttn);
     document.body.appendChild(form);
     console.log('signup button clicked');
+
 }, { once: true })
 
-enterGame.addEventListener('click', (e) => {
+loginBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    loginBttn.type = "button";
-    loginBttn.value = "Enter Game";
-    form.append(emailElement, usernameElement, loginBttn);
+    form.append(emailElement, usernameElement, submitBttn);
     document.body.appendChild(form);
     console.log('login button clicked');
 
 }, { once: true })
 
- submitBttn.addEventListener('click', (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    createPlayer();
-    console.log('player created');
-}) 
+    // if player exists, log them in
+    // loginPlayer();
+    //if player does not exist, create in account
+    //createUser();
+    if (loginBttn === "click") {
+        loginPlayer();
+    }
+    else if (submitBttn === "click") {
+        createUser();
+        console.log("player created successfully")
+    }
+});
+
+
 
 // SIGN UP - POST REQUEST - CREATE
-/* function renderForm() {
-    form.append(emailElement, usernameElement, submitBttn);
-    document.body.appendChild(form);
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-    }); 
-} */
-
-function createPlayer() { // Going to hit CREATE method in backend API
+function createUser() { // Going to hit CREATE method in backend API
     const formData = {
        email: emailElement.value,
        username: usernameElement.value
@@ -68,9 +67,4 @@ function createPlayer() { // Going to hit CREATE method in backend API
         .then((user) => {
             console.log('Success:', user);
         })
-}
-
-
-function loginPlayer() {
-    console.log("player logged in succesfully")
-}
+} */

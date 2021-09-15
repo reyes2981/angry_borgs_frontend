@@ -13,7 +13,6 @@ class GameContainer {
 }
 
 game = new GameContainer();
-console.log(game.render()); // game toggles onto console
 
 
 
