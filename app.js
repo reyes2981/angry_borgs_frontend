@@ -10,12 +10,12 @@ let tens = 00;
 let appendTens = document.querySelector('#tens');
 let appendSeconds = document.querySelector('#seconds');
 let interval;
-const endPoint = "http://localhost:3000/api/v1/players"
-const home = document.getElementById("home")
+const endPoint = "http://localhost:3000/api/v1/players";
+const enter = document.getElementById("home");
 
 
 function displayGameContainer() {
-    home.addEventListener("click", () => {
+    enter.addEventListener("click", () => {
     console.log("ive been clicked");
     gameContainer();
     })

@@ -8,7 +8,7 @@ function animate() {  // animation loop
     enemies.forEach(enemy => { // I need to change this to .MAP
         enemy.update();
         const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
-        console.log(distance);
+        //console.log(distance);
         
         // ENDGAME
         if (distance - player.radius - enemy.radius < 1) { // if the distance between player and enemy radius is less than 1 the game is paused
@@ -19,12 +19,5 @@ function animate() {  // animation loop
     // TODO: 
     // I need code that freezez timer if player touches the ground 
     // I need to slowdown timer
-       
     })
-
-    
-
-    //TODO
-
 }
-

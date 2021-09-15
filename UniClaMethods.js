@@ -1,7 +1,5 @@
 // UNIVERSAL CLASS METHODS
-
 class UniClaMethods { 
-
     // GAME METHODS
     draw() { 
         ctx.beginPath()
