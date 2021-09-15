@@ -1,5 +1,5 @@
 const y = canvas.height / 2;
-const x = canvas.height / 2;
+const x = canvas.height / 2; 
 
 class Enemy {
     constructor(x, y, radius, color, velocity) {
@@ -24,6 +24,10 @@ class Enemy {
     } 
 }
 
+function renderEnemies() {
+    spawnEnemies();
+}
+
 const spawnEnemies = async () => {
      setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
         const radius = 75;
@@ -40,3 +44,5 @@ const spawnEnemies = async () => {
         console.log(enemies);
      }, 3000) 
 }
+
+

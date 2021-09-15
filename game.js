@@ -2,21 +2,36 @@
 // freeze frame should display player object - need to fix bug where player is being frozen with multiple frames
 // score will be determined by amount of time before collision of canvas and enemy objects occurs
 // I need to start organizing game in this file 
-// when user logs in/signs up succusfully a START sreen will appear
+/* const y = canvas.height / 2;
+const x = canvas.height / 2; */
 
 function gameContainer() {
+    animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
     renderCanvas();
-    const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
-    player.draw();
-    console.log(player);
-    spawnEnemies();
-    // animate();
-    playerMovement();
 }
 
 function renderCanvas() {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
+}
+
+
+function animate() {  // animation loop
+    enemies.forEach(enemy => { // I need to change this to .MAP
+        enemy.update();
+        const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
+        //console.log(distance);
+        
+        // ENDGAME
+        if (distance - player.radius - enemy.radius < 1) { // if the distance between player and enemy radius is less than 1 the game is paused
+         cancelAnimationFrame(animationId); // do more research on this function
+            // inscrease our score - I'm using TIME
+            clearInterval(interval); // pauses timer
+        }
+    // TODO: 
+    // I need code that freezez timer if player touches the ground 
+    // I need to slowdown timer
+    })
 }
 
 /* function stopTimer() {
