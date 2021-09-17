@@ -1,6 +1,7 @@
 //Global variables
 const renderLog = document.getElementById("vet-seeking-job-bttn"); //veteran seeking job button
 const jobPostContainer = document.getElementById("job-postings-container");
+const displayLogs = document.getElementById("display-logs-bttn");
 const form = document.createElement('form');
 const title = document.createElement("input");
 const textBoxBody = document.createElement("input");
@@ -17,6 +18,7 @@ submitBttn.type = "submit";
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content Loaded")
     log.getLogs();
+
 })
 
 renderLog.addEventListener('click', (e) => {
@@ -26,9 +28,15 @@ renderLog.addEventListener('click', (e) => {
     console.log('comment button clicked');
 }, { once: true })
 
+displayLogs.addEventListener('click', (e) => {
+    e.preventDefault();
+    log.renderLogs();
+   
+
+}, { once: true })
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    log.postLogs();
 })
 
 

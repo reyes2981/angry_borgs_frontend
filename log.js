@@ -2,17 +2,35 @@ class Log {
 
     async getLogs() {
         const response = await fetch(endPoint);
-        let logs = await response.json();
-        console.log(logs);
-        document.getElementById('job-postings-container').innerHTML += '<li>'+
-        "<h1>" + logs.title + "</h1>" + 
-        "<p>" + logs.textBoxBody + "</p>" + 
-        '</li>';  
-        getLogs();
+        let data = await response.json();
+        console.log(data);
+    }
+
+    async renderLogs() {
+        const logsContainer = document.getElementById("display-logs-bttn");
+        console.log(logsContainer);
+
     }
 
     async postLogs() {
-        console.log('log created');
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }
+        const response = await fetch(endPoint, configObj)
+        //const json = await response.json()
+        if (response.ok) {
+            //return json
+            return response
+        } else {
+            
+        }
+    } catch(error) {
+
     }
 }
 
