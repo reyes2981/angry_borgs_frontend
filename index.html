@@ -6,21 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"></link>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>osoarmy career services</title>
+    <title>Angry Borg</title>
 </head>
 <body>
-    <h1>osoarmy career services</h1>
-    <div id="vet-seeking-job-bttn">
-        <button>Create Log</button>
-    </div>
-    <div id="display-logs-bttn">
-        <button>Logs</button>
-    </div>
-
-    <div id="contaner"></div>
-
+    <div class="fixed text-white ml-2 mt-1 select-none"><span id="scoreElement">Score</span><span id="seconds"> 00</span>:<span id="tens">00</span></div>
+    <canvas></canvas>
 <script src="app.js"></script>
-<script src="universal_methods.js"></script>
-
+<script src="UniClaMethods.js"></script>
+<script src="player.js"></script>
+<script src="projectile.js"></script>
+<script type="module" src="enemy.js"></script>
+<script src="animate.js"></script>
 </body>
 </html>
