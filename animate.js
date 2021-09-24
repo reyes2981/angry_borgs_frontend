@@ -24,4 +24,4 @@ function animate() {
 
 }
 
-//animate();
+animate();
