@@ -1,16 +1,16 @@
 class Log {
+
     constructor(title, textBoxBody) {
         this.title = title;
         this.textBoxBody = textBoxBody;
     }
 
     async loadLogs() {
-        const response = await fetch(endPoint);
-        let data = await response.json()
+        const request = await fetch(endPoint)
+        const data = await request.json();
         logList.push(data);
-        logList.map(log => {
-            console.log(log);
-        })
+        console.log(logList);
+        return logList;
     }
 
     async postLogs() {
@@ -29,24 +29,13 @@ class Log {
         console.log(responseJSON) // Log the JSON
     }
 
-    async logCard(log) {
+     async logCard() {
         const div = document.createElement('div');
         const h1 = document.createElement('h1');
         const ul = document.createElement('ul');
 
-        div.setAttribute("class", "log-container");
-        div.setAttribute("data-id", log.id);
-        h1.innerHTML = log.title;
-        div.append(ul);
-        ul.append(h1);
-        document.body.appendChild(div);
-        logList.map( log => log.renderLog(log))
-    }
-
-    async renderLog(log) {
-        console.log("logs rendered");
-    }
-
+     
+    } 
 }
 
 const log = new Log();
