@@ -4,6 +4,19 @@ class UniClaMethods {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         ctx.fillStyle = this.color
         ctx.fill()
+
+        ctx.drawImage(backgroundImage, backgroundImage.position.x, backgroundImage.position.y, canvas.width, canvas.height);
+        backgroundImage.position.x -= 0.1;
+
+        ctx.drawImage(backgroundImage, backgroundImage.position.x, backgroundImage.position.y, canvas.width, canvas.height);
+        backgroundImage.position.x -= 0.1;
+
+        if(backgroundImage.x <= -canvas.width){
+            backgroundImage.x = canvas.width;
+        }
+        if(backgroundImage2.x <= -canvas.width){
+            backgroundImage2.x = canvas.width;
+        }
     }
 
     update() {

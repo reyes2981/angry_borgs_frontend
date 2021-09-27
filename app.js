@@ -2,6 +2,13 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d'); // context - i need to figure out why this is needed?
 
+const backgroundImage = new Image();
+backgroundImage.src = 'assets/bg5 (1).jpg';
+backgroundImage.position = { x: 0, y: 0};
+const backgroundImage2 = new Image();
+backgroundImage2.src = 'assets/bg5 (1).jpg';
+backgroundImage.position = { x: 0, y: 0};
+
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
 
