@@ -1,22 +1,21 @@
 class UniClaMethods { 
+
     draw() { 
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         ctx.fillStyle = this.color
         ctx.fill()
-
+        //draws background image
         ctx.drawImage(backgroundImage, backgroundImage.position.x, backgroundImage.position.y, canvas.width, canvas.height);
-        backgroundImage.position.x -= 0.1;
+        backgroundImage.position.x -= 1;
 
-        ctx.drawImage(backgroundImage, backgroundImage.position.x, backgroundImage.position.y, canvas.width, canvas.height);
-        backgroundImage.position.x -= 0.1;
+        //This code will wrap image
+        if(backgroundImage.position.x <= -canvas.width){
+            backgroundImage.position.x = canvas.width;
+        }
 
-        if(backgroundImage.x <= -canvas.width){
-            backgroundImage.x = canvas.width;
-        }
-        if(backgroundImage2.x <= -canvas.width){
-            backgroundImage2.x = canvas.width;
-        }
+        
+        
     }
 
     update() {
