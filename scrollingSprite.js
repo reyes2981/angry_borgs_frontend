@@ -15,8 +15,11 @@ class ScrollingSprite {
         }
     }
 
-    draw(ctx) {
+    draw() {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        window.requestAnimationFrame(draw); 
+
     }
+
 }
 

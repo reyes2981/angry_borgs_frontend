@@ -1,39 +1,29 @@
-class UniClaMethods { 
+class UniClaMethods {
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    ctx.fillStyle = this.color;
+    ctx.fill();
 
-    draw() { 
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-        ctx.fillStyle = this.color
-        ctx.fill()
-        //draws background image
-        ctx.drawImage(backgroundImage, backgroundImage.position.x, backgroundImage.position.y, canvas.width, canvas.height);
-        backgroundImage.position.x -= 1;
 
-        //This code will wrap image
-        if(backgroundImage.position.x <= -canvas.width){
-            backgroundImage.position.x = canvas.width;
-        }
+  }
 
-        
-        
+  update() {
+    this.velocity += this.gravity;
+    this.velocity += 0;
+    this.y += this.velocity;
+    this.draw();
+
+    if (this.y > canvas.height) {
+      // why did I need to add canvas before height?
+      this.y = canvas.height;
+      this.velocity = 0;
     }
 
-    update() {
-        this.velocity += this.gravity;
-        this.velocity += 0;
-        this.y += this.velocity;
-        this.draw();
-
-        if (this.y > canvas.height) { // why did I need to add canvas before height?
-            this.y = canvas.height;
-            this.velocity = 0;
-        } 
-
-        if (this.y < 0) { // why did I need to add canvas before height?
-            this.y = 0;
-            this.velocity = 0;
-        } 
-
-       
+    if (this.y < 0) {
+      // why did I need to add canvas before height?
+      this.y = 0;
+      this.velocity = 0;
     }
+  }
 }
