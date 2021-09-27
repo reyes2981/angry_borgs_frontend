@@ -1,6 +1,3 @@
-maybe create resume tracker
-//could be connected to Linkedin
+parallax blogs 
 
-//orginization like howard brown but for veterans
-//orginization that provides veterans career services 
-//exclusity can only be accepted into group via word of mouth
+https://dev.to/ibrahima92/make-a-parallax-effect-with-10-lines-of-javascript-3hia
