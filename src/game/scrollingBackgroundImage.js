@@ -1,6 +1,5 @@
-class ScrollingSprite extends UniClaMethods {
+class ScrollingBackgroundImage {
     constructor(image, x, y, width, height, speed) {
-        super();
         this.image = image;
         this.x = x;
         this.y = y;
@@ -18,5 +17,5 @@ class ScrollingSprite extends UniClaMethods {
     }
 }
 
-const scrollingSprite = new ScrollingSprite(backgroundImage, this.x, this.y, this.width, this.height)
-scrollingSprite.draw()
+const scrollingBackgroundImage = new ScrollingBackgroundImage(ScrollingBackgroundImage, this.x, this.y, this.width, this.height)
+console.log(scrollingBackgroundImage);
