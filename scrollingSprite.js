@@ -1,5 +1,6 @@
-class ScrollingSprite {
+class ScrollingSprite extends UniClaMethods {
     constructor(image, x, y, width, height, speed) {
+        super();
         this.image = image;
         this.x = x;
         this.y = y;
@@ -15,11 +16,6 @@ class ScrollingSprite {
         }
     }
 
-    draw() {
-        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        window.requestAnimationFrame(draw); 
-
-    }
 
 }
 
