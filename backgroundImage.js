@@ -9,13 +9,14 @@ class ScrollingSprite extends UniClaMethods {
         this.speed = speed;
     }
 
+
     scroll() {
         this.x -= this.speed;
         if (this.x <= -this.width) {
             this.x = this.width - 1;
         }
     }
-
-
 }
 
+const scrollingSprite = new ScrollingSprite(backgroundImage, this.x, this.y, this.width, this.height)
+scrollingSprite.draw()

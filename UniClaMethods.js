@@ -4,8 +4,6 @@ class UniClaMethods {
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = this.color;
     ctx.fill();
-
-
   }
 
   update() {
@@ -27,3 +25,4 @@ class UniClaMethods {
     }
   }
 }
+

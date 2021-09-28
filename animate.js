@@ -4,7 +4,6 @@ function animate() {
     ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
     player.draw();
     player.update();
-
     enemies.forEach(enemy => { // I need to change this to .MAP
         enemy.update();
         const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
