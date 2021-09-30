@@ -37,4 +37,4 @@ function spawnEnemies() {
      }, 5000) 
 }
 
-spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
+//spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
