@@ -1,6 +1,8 @@
 const canvas = document.querySelector('canvas');// reference to the CANVAS element
 const ctx = canvas.getContext('2d');
 const enemies = [];
+let animationId; // confirm what this variable does again
+
 
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
