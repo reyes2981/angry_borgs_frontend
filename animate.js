@@ -1,7 +1,7 @@
-function animate() { 
-    animationId = requestAnimationFrame(animate); // what does this function do? By default  returns the value of the frame you are currently on
+/* function animate() { 
+    animationId = requestAnimationFrame(animate); 
     ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height) // what exactly does this do?
+    ctx.fillRect(0, 0, canvas.width, canvas.height) 
     player.draw();
     player.update();
     enemies.forEach(enemy => { // I need to change this to .MAP
@@ -16,11 +16,11 @@ function animate() {
             
        /*      score += 100;
             scoreElement.innerHTML = score; */
-        }
-    })
+      //  }
+    //})
 
     //TODO
 
-}
+//} */
 
 //animate();

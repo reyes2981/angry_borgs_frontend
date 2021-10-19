@@ -1,4 +1,4 @@
-class ScrollingBackgroundImage {
+/* class ScrollingBackgroundImage {
     constructor(image, x, y, width, height, speed) {
         this.image = image;
         this.x = x;
@@ -18,4 +18,4 @@ class ScrollingBackgroundImage {
 }
 
 const scrollingBackgroundImage = new ScrollingBackgroundImage(ScrollingBackgroundImage, this.x, this.y, this.width, this.height)
-console.log(scrollingBackgroundImage);
+console.log(scrollingBackgroundImage); */

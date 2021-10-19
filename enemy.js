@@ -1,4 +1,4 @@
-const y = canvas.height / 2;
+/* const y = canvas.height / 2;
 const x = canvas.height / 2;
 
 class Enemy extends UniClaMethods {
@@ -38,3 +38,4 @@ function spawnEnemies() {
 }
 
 //spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
+ */
