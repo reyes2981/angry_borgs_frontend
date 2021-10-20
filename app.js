@@ -3,7 +3,6 @@ const ctx = canvas.getContext('2d');
 const enemies = [];
 let animationId; // confirm what this variable does again
 
-
 canvas.width = innerWidth; //innerwidth is a property of the WINDOW object
 canvas.height = innerHeight - 2; // resized canvas height so it fits browser 
 
@@ -66,24 +65,14 @@ class Enemy {
       }
 
       update() {
-        this.velocity += this.gravity;
-        this.y += this.velocity; // changes by this.velocity 
-
-        if (this.y > canvas.height) { // why did I need to add canvas before height?
-            this.y = canvas.height;
-            this.velocity = 0;
-        }
-
-        if (this.y < 0) { // why did I need to add canvas before height?
-            this.y = 0;
-            this.velocity = 0;
-        }
-    }
+        this.draw();
+        this.x = this.x + this.velocity.x;
+        this.y = this.y + this.velocity.y;
+    } 
 }
 
 const player = new Player(200, y, 17, 'blue', 0.6, 0, -15);
 player.draw();
-
 
 addEventListener('keyup', event => {
     if (event.code === 'Space') {
@@ -91,6 +80,23 @@ addEventListener('keyup', event => {
         player.up();
     }
 })
+
+function spawnEnemies() {
+    setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
+        const radius = 75;
+        const x = canvas.width + radius;
+        const y = Math.random() * canvas.width;
+        const color = 'green';
+        const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x);
+        const velocity = {
+            x: Math.cos(angle) * 4, // enemies are moving at 2X their set spped
+            y: Math.sin(angle) * 4
+        };
+
+        enemies.push(new Enemy(x, y, radius, color, velocity)); // what does this do?
+        console.log(enemies);
+    }, 5000)
+}
 
 function animate() {
     animationId = requestAnimationFrame(animate);
@@ -115,25 +121,8 @@ function animate() {
 
 }
 
-function spawnEnemies() {
-    setInterval(() => { // the first argument in set interval is a callback function - the code i want to call for each specific interval. 
-        const radius = 75;
-        const x = canvas.width + radius;
-        const y = Math.random() * canvas.width;
-        const color = 'green';
-        const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x);
-        const velocity = {
-            x: Math.cos(angle) * 4, // enemies are moving at 2X their set spped
-            y: Math.sin(angle) * 4
-        };
-
-        enemies.push(new Enemy(x, y, radius, color, velocity)); // what does this do?
-        console.log(enemies);
-    }, 5000)
-}
-
 animate();
-spawnEnemies(); // call spawnEnemies funcion so enemies will be "spawned" on the browser 
+spawnEnemies();
 
 /* let animationId; // confirm what this variable does again
 let score = 0;
